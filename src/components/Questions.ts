@@ -1,23 +1,77 @@
-import type { Question } from "../types"
+// Array of quiz questions
+import type { Question } from "../types";
 
 export const questions: Question[] = [
   {
     id: 1,
-    question: "Hvað heitir höfuðborg Íslands?",
-    options: ["Akureyri", "Reykjavík", "Keflavík", "Selfoss"],
-    correctIndex: 1,
+    question: "Hvað fá óþekkir krakkar hefðbundislega í skóinn?",
+    options: [
+      "Ávöxt",
+      "Kartöflu",
+      "Súkkulaði",
+      "Innheimtukröfu"],
+    correctIndex: 1
   },
   {
     id: 2,
-    question: "Hvað er 2 + 2?",
-    options: ["3", "4", "5", "22"],
-    correctIndex: 1,
+    question: "Hvaða jólasvein kemur fyrst í heimsókn?",
+    options: [
+      "Gluggagæjir",
+      "Kertasníkir",
+      "Stekkjastaur",
+      "Hurðaskellir"],
+    correctIndex: 2
   },
   {
     id: 3,
-    question: "Hvaða tungumál er mest notað í heiminum?",
-    options: ["Enska", "Mandarín", "Spænska", "Hindi"],
+    question: "Hvað gerir jólakötturinn?",
+    options: [
+      "Étur þá sem fá ný föt fyrir jólin",
+      "Étur þá sem sofa ekki fyrir jólin",
+      "Étur þá sem fá ekki ný föt fyrir jólin",
+      "Étur allar jólagjafirnar"
+    ],
+    correctIndex: 2
+  },
+  {
+    id: 4,
+    question: "Hvaða drykkur er algengastur á jólahlaðborðum?",
+    options: [
+      "Malt og appelsín",
+      "Romm og coke",
+      "Hleðsla",
+      "Tequila"],
+    correctIndex: 0
+  },
+  {
+    id: 5,
+    question: "Hvað heitir móðir jólasveinanna?",
+    options: [
+      "Hólmfríður",
+      "Grýla",
+      "Jóna",
+      "Margrét"],
     correctIndex: 1,
   },
-  // Bæta við fleiri spurningum hér ef þú vilt
-]
+  {
+    id: 6,
+    question: "Hvað heitir faðir jólasveinanna?",
+    options: [
+      "Stúfur",
+      "Askasleikir",
+      "Leppalúði",
+      "Ketkrókur"],
+    correctIndex: 2,
+  },
+  {
+    id: 7,
+    question: "Hvaða jólasvein kemur síðast í heimsókn?",
+    options: [
+      "Gáttaþefur",
+      "Ketkrókur",
+      "Kertasníkir",
+      "Skyrgámur"],
+    correctIndex: 2,
+  },
+
+];

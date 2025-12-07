@@ -1,49 +1,45 @@
-import { useState } from "react"
-import QuestionComponent from "./components/QuestionComponent"
-import { questions } from "./components/Questions"
-import { calculateScore } from "./utils"
-import "./App.css"
+import { useState } from "react";
+import QuestionComponent from "./components/QuestionComponent";
+import { questions } from "./components/Questions";
+
 
 export default function App() {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
-  const [answers, setAnswers] = useState<number[]>([])
-  const [showScore, setShowScore] = useState(false)
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [score, setScore] = useState(0);
+  const [quizFinished, setQuizFinished] = useState(false);
 
   const handleAnswer = (answerIndex: number) => {
-    setAnswers([...answers, answerIndex])
-    const nextIndex = currentQuestionIndex + 1
-    if (nextIndex < questions.length) {
-      setCurrentQuestionIndex(nextIndex)
-    } else {
-      setShowScore(true)
-    }
-  }
+    const currentQuestion = questions[currentQuestionIndex];
+    if (answerIndex === currentQuestion.correctIndex) setScore((s) => s + 1);
 
-  const handleReset = () => {
-    setCurrentQuestionIndex(0)
-    setAnswers([])
-    setShowScore(false)
-  }
+    if (currentQuestionIndex < questions.length - 1) setCurrentQuestionIndex(i => i + 1);
+    else setQuizFinished(true);
+  };
 
-  if (showScore) {
-    const score = calculateScore(questions, answers)
-    return (
-      <div style={{ padding: "20px" }}>
-        <h1>Þú fékkst {score}/{questions.length} rétt</h1>
-        <button onClick={handleReset} style={{ padding: "8px 16px", marginTop: "16px" }}>
-          Reyna aftur
-        </button>
-      </div>
-    )
-  }
+  const handleRestart = () => {
+    setCurrentQuestionIndex(0);
+    setScore(0);
+    setQuizFinished(false);
+  };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <QuestionComponent
-        question={questions[currentQuestionIndex]}
-        onAnswer={handleAnswer}
-      />
-      <p>Spurning {currentQuestionIndex + 1} af {questions.length}</p>
-    </div>
-  )
+  <div className="quiz-container">
+    {quizFinished ? (
+      <>
+        <h2>Þú fékkst {score}/{questions.length} rétt!</h2>
+        <button className="btn" onClick={handleRestart}>Reyna aftur</button>
+      </>
+    ) : (
+      <>
+        <QuestionComponent
+          key={currentQuestionIndex}
+          question={questions[currentQuestionIndex]}
+          onAnswer={handleAnswer}
+        />
+        <p className="quizState">Spurning {currentQuestionIndex + 1} af {questions.length}</p>
+        <p className="quizState">Rétt svör hingað til: {score}</p>
+      </>
+    )}
+  </div>
+);
 }

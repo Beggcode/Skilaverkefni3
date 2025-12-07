@@ -1,3 +1,4 @@
+// logic to calculate the score based on correct answers
 import type { Question } from "./types";
 
 export function calculateScore(questions: Question[], answers: number[]): number {
