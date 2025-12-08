@@ -26,7 +26,7 @@ export default function App() {
   <div className="quiz-container">
     {quizFinished ? (
       <>
-        <h2>Þú fékkst {score}/{questions.length} rétt!</h2>
+        <h2>Þú svaraðir {score}/{questions.length} svörum rétt!</h2>
         <button className="btn" onClick={handleRestart}>Reyna aftur</button>
       </>
     ) : (

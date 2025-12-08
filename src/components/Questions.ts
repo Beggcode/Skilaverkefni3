@@ -4,11 +4,11 @@ import type { Question } from "../types";
 export const questions: Question[] = [
   {
     id: 1,
-    question: "Hvað fá óþekkir krakkar hefðbundislega í skóinn?",
+    question: "Hvað fá óþekkir krakkar hefðbundlega í skóinn?",
     options: [
       "Ávöxt",
       "Kartöflu",
-      "Súkkulaði",
+      "Kol",
       "Innheimtukröfu"],
     correctIndex: 1
   },

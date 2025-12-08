@@ -24,8 +24,7 @@ export default function QuestionComponent({ question, onAnswer }: Props) {
   return (
     <div className="question" aria-live="polite">
       <h2>{question.question}</h2>
-
-      <ul className="answers-grid" role="list">
+      <ul className="answers-grid"> 
         {question.options.map((option: string, i: number) => {
           const isSelected = selectedIndex === i;
           const isCorrect = i === question.correctIndex;
@@ -41,16 +40,8 @@ export default function QuestionComponent({ question, onAnswer }: Props) {
           return (
             <li
               key={i}
-              role="button"
-              tabIndex={0}
               className={className}
               onClick={() => handleClick(i)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  handleClick(i);
-                }
-              }}
             >
               {option}
             </li>
