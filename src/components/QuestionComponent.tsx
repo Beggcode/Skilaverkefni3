@@ -8,8 +8,10 @@ interface Props {
 }
 
 export default function QuestionComponent({ question, onAnswer }: Props) {
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [showCorrect, setShowCorrect] = useState(false);
+  const [selectedIndex, setSelectedIndex] = 
+  useState<number | null>(null);
+  const [showCorrect, setShowCorrect] = 
+  useState(false);
 
   const handleClick = (index: number) => {
     if (selectedIndex !== null) return;
@@ -32,7 +34,10 @@ export default function QuestionComponent({ question, onAnswer }: Props) {
           let className = "answer";
           if (showCorrect) {
             if (isCorrect) className += " correct";
-            else if (isSelected && !isCorrect) className += " wrong";
+
+            else if (isSelected && !isCorrect) 
+              className += " wrong";
+
           } else if (isSelected) {
             className += " selected";
           }

@@ -10,9 +10,13 @@ export default function App() {
 
   const handleAnswer = (answerIndex: number) => {
     const currentQuestion = questions[currentQuestionIndex];
-    if (answerIndex === currentQuestion.correctIndex) setScore((s) => s + 1);
+    
+    if (answerIndex === currentQuestion.correctIndex)
+       setScore((s) => s + 1);
 
-    if (currentQuestionIndex < questions.length - 1) setCurrentQuestionIndex(i => i + 1);
+    if (currentQuestionIndex < questions.length - 1) 
+      setCurrentQuestionIndex(i => i + 1);
+
     else setQuizFinished(true);
   };
 
@@ -26,8 +30,13 @@ export default function App() {
   <div className="quiz-container">
     {quizFinished ? (
       <>
-        <h2>Þú svaraðir {score}/{questions.length} svörum rétt!</h2>
-        <button className="btn" onClick={handleRestart}>Reyna aftur</button>
+        <h2 className="final-score-heading">
+          Þú svaraðir {score}/{questions.length} svörum rétt!
+        </h2>
+        <button 
+        className="btn" 
+        onClick={handleRestart}>Reyna aftur
+        </button>
       </>
     ) : (
       <>
@@ -36,7 +45,9 @@ export default function App() {
           question={questions[currentQuestionIndex]}
           onAnswer={handleAnswer}
         />
-        <p className="quizState">Spurning {currentQuestionIndex + 1} af {questions.length}</p>
+        <p className="quizState">
+          Spurning {currentQuestionIndex + 1} af {questions.length}
+        </p>
         <p className="quizState">Rétt svör hingað til: {score}</p>
       </>
     )}
